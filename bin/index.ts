@@ -8,6 +8,7 @@ import { closeControlledBrowser, startControlledBrowser } from '../browser';
 import { startServer } from '../server/app';
 
 const program = new Command();
+
 const appEnv = (process.env.APP_ENV ?? process.env.NODE_ENV ?? '').toLowerCase();
 const isLocalEnv = appEnv === 'local';
 const serverPort = Number(process.env.PORT ?? 3000);

@@ -59,9 +59,10 @@ class BrowserManager {
     return this.context;
   }
 
-  getPage(): Page | null {
+  async getPage(): Promise<Page> {
     if (!this.page || this.page.isClosed()) {
-      return null;
+      const page = await this.getOrCreatePage();
+      return page
     }
 
     return this.page;
