@@ -2,8 +2,14 @@
   "name": "browser-agent",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "bin": {
+    "browser-agent": "./bin/index.ts"
+  },
   "scripts": {
+    "start": "ts-node ./bin/index.ts start",
+    "start:local": "cross-env APP_ENV=local ts-node ./bin/index.ts start",
+    "server:dev": "cross-env APP_ENV=local nodemon --watch server --ext ts --exec \"ts-node ./server/app.ts\"",
+    "server:start": "ts-node ./server/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -23,6 +29,8 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^25.5.0",
+    "cross-env": "^10.1.0",
+    "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
